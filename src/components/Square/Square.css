@@ -9,7 +9,12 @@
     font-size: 50px;
     color: white;
     cursor: pointer;
+    transition: left .4s, top .4s;
 } 
+
+.number.correct {
+    background-color: var(--correct);
+}
 
 .number.slot--0{left: 0px; top: 0;}
 .number.slot--1{left: calc(var(--size)); top: 0;}
