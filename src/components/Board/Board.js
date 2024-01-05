@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Overlay from "../Overlay/Overlay";
 import "./Board.css"
 import Square from '../Square/Square';
+import Winner from '../Winner/Winner';
+import NewGame from '../newGame/NewGame';
 
 const Board = () => {
 
@@ -49,18 +51,25 @@ const Board = () => {
             moveSquare(numbers.find(n => n.index === item16 -4))
     }
 
+    const reset = () => setNumbers(shuffle());
+
+    useEffect(reset, [])
+
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
     })
 
     return <div className="game">
+        <NewGame reset={reset}/>
         <div className="board">
             <Overlay/>   
             {numbers.map((x, i) => 
                 <Square key={i} number={x} moveSquare = {moveSquare}/>
-            )} 
+            )}  
         </div> 
+            <Winner numbers = {numbers} reset = {reset}/>
+            
     </div>
 }
 
