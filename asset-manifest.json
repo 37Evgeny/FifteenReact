@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FifteenReact/static/css/main.cc4514b0.css",
+    "main.js": "/FifteenReact/static/js/main.ba7ad051.js",
+    "index.html": "/FifteenReact/index.html",
+    "main.cc4514b0.css.map": "/FifteenReact/static/css/main.cc4514b0.css.map",
+    "main.ba7ad051.js.map": "/FifteenReact/static/js/main.ba7ad051.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc4514b0.css",
+    "static/js/main.ba7ad051.js"
+  ]
+}
