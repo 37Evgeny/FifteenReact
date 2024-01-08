@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FifteenReact/static/css/main.cc4514b0.css",
-    "main.js": "/FifteenReact/static/js/main.e3ba3d24.js",
+    "main.js": "/FifteenReact/static/js/main.0ad5c7c5.js",
     "index.html": "/FifteenReact/index.html",
     "main.cc4514b0.css.map": "/FifteenReact/static/css/main.cc4514b0.css.map",
-    "main.e3ba3d24.js.map": "/FifteenReact/static/js/main.e3ba3d24.js.map"
+    "main.0ad5c7c5.js.map": "/FifteenReact/static/js/main.0ad5c7c5.js.map"
   },
   "entrypoints": [
     "static/css/main.cc4514b0.css",
-    "static/js/main.e3ba3d24.js"
+    "static/js/main.0ad5c7c5.js"
   ]
 }
