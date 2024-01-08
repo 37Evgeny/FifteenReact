@@ -28,19 +28,16 @@ const Board = () => {
         console.log(item16 + ' item16')
         // условие чтобы ячейка не перескакивала на другой ряд
         if (square.index === item16-1 || square.index === item16+1)
+        // если индекс пустой ячейки совпадает с square тогда вернуть ложь
         if(Math.floor(item16/4) !== Math.floor(square.index/4)) return false
-
+        //
         if(![item16-1, item16+1, item16-4, item16+4].includes(square.index ) || animating)
         
         
          return
-            // if (Math.floor(this.hole/4) !== Math.floor(index/4)) return false;
-            console.log(square.index + ' square')
+            // возвращаем новый numbers со всеми изменениями
             const newNumbers = [...numbers].map(number => {
                 
-                // if(item16-1 || item16+1)
-                // if(Math.floor(item16/4) !== Math.floor(square.index/4)) return square.index =false;
-
                 if (number.index !== item16 && number.index !== square.index)
                 {  
                     console.log(number.index + ' number')
@@ -54,16 +51,19 @@ const Board = () => {
                 return {value : square.value, index: item16 }
                 
                 })
-             
+            //  включаем анимацию
         setAnimating(true)
+        // обновляем стейт 
         setNumbers(newNumbers)
+        //отключаем анимацию
         setTimeout(() => setAnimating(false), 400)
     }
 
 
-
+//передвижение при нажатии кнопок
     const handleKeyDown = e => {
         const item16 = numbers.find(n => n.value === 16).index
+        // вправо на одну ячейку
         if (e.keyCode === 37 && !(item16 % 4 === 3))
             moveSquare(numbers.find(n => n.index === item16 + 1))
         if (e.keyCode === 38 && !(item16 > 11))
