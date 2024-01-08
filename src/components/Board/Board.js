@@ -23,21 +23,44 @@ const Board = () => {
 
     // изменение положения при клике
     const moveSquare = square => {
+        
         const item16 = numbers.find(n => n.value === 16).index
-        if(![item16-1, item16+1, item16-4, item16+4].includes(square.index) || animating)
-            return
+        console.log(item16 + ' item16')
+        // условие чтобы ячейка не перескакивала на другой ряд
+        if (square.index === item16-1 || square.index === item16+1)
+        if(Math.floor(item16/4) !== Math.floor(square.index/4)) return false
 
+        if(![item16-1, item16+1, item16-4, item16+4].includes(square.index ) || animating)
+        
+        
+         return
+            // if (Math.floor(this.hole/4) !== Math.floor(index/4)) return false;
+            console.log(square.index + ' square')
             const newNumbers = [...numbers].map(number => {
+                
+                // if(item16-1 || item16+1)
+                // if(Math.floor(item16/4) !== Math.floor(square.index/4)) return square.index =false;
+
                 if (number.index !== item16 && number.index !== square.index)
-                return number
-            else if (number.value === 16)
-                return {value: 16, index: square.index}
-            return {value : square.value, index: item16}
-            })
+                {  
+                    console.log(number.index + ' number')
+                    return number
+                }
+                        
+                else if (number.value === 16)
+                
+                    return {value: 16, index: square.index}
+                   
+                return {value : square.value, index: item16 }
+                
+                })
+             
         setAnimating(true)
         setNumbers(newNumbers)
         setTimeout(() => setAnimating(false), 400)
     }
+
+
 
     const handleKeyDown = e => {
         const item16 = numbers.find(n => n.value === 16).index
@@ -51,10 +74,13 @@ const Board = () => {
             moveSquare(numbers.find(n => n.index === item16 -4))
     }
 
+    // в стейт передаем функцию shaffle чтобы перемешать поле начать новую игру
     const reset = () => setNumbers(shuffle());
 
+    // остлеживаем функцию ресет т.е. была ли нажата кнопка новая игра
     useEffect(reset, [])
 
+    // отслеживаем нажатие кнопок на клавиатуре
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
